@@ -1,1 +1,55 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* Importing Bootstrap SCSS file. */
+@import "~bootstrap/scss/bootstrap";
+
+/* Importing Datepicker SCSS file. */
+@import "~ngx-bootstrap/datepicker/bs-datepicker";
+
+@font-face {
+  font-family: Lato;
+  src: url(assets/fonts/Lato.ttf) format("opentype");
+}
+
+/* Importing Datepicker SCSS file. */
+@import "./variables.scss";
+
+* {
+  color: $color-primary;
+  font-family: "Lato" !important;
+  margin: 0;
+}
+
+input[type="text"],
+button,
+select,
+textarea,
+.display-text {
+  border: none;
+  outline: none;
+  background-color: $background-components;
+  padding: 10px 15px;
+  width: 500px;
+  border-radius: 5px;
+}
+
+.display-text {
+  background-color: $background-display;
+  color: $color-primary-light;
+}
+
+input[type="text"],
+button,
+select {
+  height: 40px;
+}
+
+input[type="radio"] {
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: $color-primary;
+}

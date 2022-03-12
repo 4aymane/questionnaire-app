@@ -1,0 +1,34 @@
+@import "../../../variables.scss";
+
+.page-container {
+  height: 100vh;
+}
+
+.form {
+  width: 500px;
+  height: fit-content;
+}
+
+input,
+select,
+button,
+textarea,
+.display-text {
+  margin-bottom: 20px;
+}
+
+.form span {
+  cursor: pointer;
+}
+
+.display-text button {
+  width: 60px;
+  font-size: 0.7rem;
+  height: 28px;
+  padding: 0;
+  margin: 0
+}
+
+.display-text div{
+    color: $color-primary-light;
+}

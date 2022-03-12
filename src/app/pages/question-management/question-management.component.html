@@ -1,0 +1,25 @@
+<div class="page-container d-flex justify-content-center">
+  <div>
+    <h1 class="mt-5">Questions list</h1>
+
+    <div class="questions-list">
+      <div *ngFor="let question of questionsList" class="display-text mt-3">
+        <div class="d-flex justify-content-between pt-2">
+          {{ question.question }}
+          <div class="question-type">{{ question.type }}</div>
+        </div>
+        <hr />
+        <div class="d-flex justify-content-between">
+          <div>{{ question.date | date: "medium" }}</div>
+          <div>
+            <button (click)="edit(question.id)" style="margin-right: 5px">Edit</button>
+            <button (click)="delete(question.id)">Delete</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button routerLink="/create-question" class="mt-5">
+      Create new question
+    </button>
+  </div>
+</div>

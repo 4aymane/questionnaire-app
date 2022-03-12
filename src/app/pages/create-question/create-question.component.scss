@@ -1,0 +1,20 @@
+.page-container {
+  height: 100vh;
+}
+
+.form {
+  width: 500px;
+  height: fit-content;
+}
+
+input,
+select,
+button,
+textarea,
+.display-text {
+  margin-bottom: 20px;
+}
+
+.form span{
+    cursor: pointer;
+}

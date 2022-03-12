@@ -1,0 +1,49 @@
+<div
+  class="page-container w-100 d-flex justify-content-center align-items-center"
+>
+  <div class="form">
+    <a routerLink="/">&lt; Question Management</a>
+    <h1 class="mt-5 mb-3">Edit question</h1>
+
+    <input
+      *ngIf="question.type"
+      [(ngModel)]="question.question"
+      type="text"
+      placeholder="Type the question here"
+    />
+
+    <!---->
+    <div
+      *ngFor="let choice of question.choices"
+      class="display-text d-flex justify-content-between"
+    >
+      <div>{{ choice }}</div>
+      <button (click)="deleteChoice(choice)">Delete</button>
+    </div>
+    <input
+      *ngIf="question.type && question.type !== 'open'"
+      [(ngModel)]="choice"
+      type="text"
+      placeholder="Type choice here"
+    />
+    <button
+      *ngIf="question.type && question.type !== 'open'"
+      [disabled]="!choice"
+      (click)="addChoice()"
+    >
+      Add choice
+    </button>
+
+    <!---->
+    <button
+      [disabled]="
+        !question.question ||
+        (question.choices.length == 0 && question.type !== 'open')
+      "
+      (click)="edit()"
+      class="mt-3"
+    >
+      EDIT
+    </button>
+  </div>
+</div>

@@ -1,0 +1,70 @@
+<div class="page-container w-100 d-flex justify-content-center align-items-center">
+  <div class="form">
+    <a routerLink="/">&lt; Question Management</a>
+    <h1 class="mt-5 mb-3">Create a question</h1>
+
+    <!---->
+    <div class="display-text">
+      {{ question.type || "Select question type" }}
+    </div>
+    <input
+      name="question-type"
+      type="radio"
+      value="single choice"
+      [(ngModel)]="question.type"
+      #typeSingle
+    /><span (click)="typeSingle.click()">Single choice</span><br />
+    <input
+      name="question-type"
+      type="radio"
+      value="multiple choice"
+      [(ngModel)]="question.type"
+      #typeMultiple
+    /><span (click)="typeMultiple.click()">Multiple Choice</span><br />
+    <input
+      name="question-type"
+      type="radio"
+      value="open"
+      [(ngModel)]="question.type"
+      #typeOpen
+    /><span (click)="typeOpen.click()">Open</span>
+
+    <!---->
+    <input
+      *ngIf="question.type"
+      [(ngModel)]="question.question"
+      type="text"
+      placeholder="Type the question here"
+    />
+
+    <!---->
+    <div *ngFor="let choice of question.choices" class="display-text">
+      {{ choice }}
+    </div>
+    <input
+      *ngIf="question.type && question.type !== 'open'"
+      [(ngModel)]="choice"
+      type="text"
+      placeholder="Type choice here"
+    />
+    <button
+      *ngIf="question.type && question.type !== 'open'"
+      [disabled]="!choice"
+      (click)="addChoice()"
+    >
+      Add choice
+    </button>
+
+    <!---->
+    <button
+      [disabled]="
+        !question.question ||
+        (question.choices.length == 0 && question.type !== 'open')
+      "
+      (click)="create()"
+      class="mt-3"
+    >
+      CREATE
+    </button>
+  </div>
+</div>
